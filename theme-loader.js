@@ -28,13 +28,17 @@
                     if (customColors) {
                         try {
                             const colors = JSON.parse(customColors);
+                            // Override the CSS custom properties
                             document.documentElement.style.setProperty('--theme-primary', colors.primary);
                             document.documentElement.style.setProperty('--theme-secondary', colors.secondary);
                             document.documentElement.style.setProperty('--theme-accent', colors.accent);
                             document.documentElement.style.setProperty('--theme-background', colors.background);
+                            console.log('Custom colors applied:', colors);
                         } catch (e) {
                             console.log('Error parsing custom colors:', e);
                         }
+                    } else {
+                        console.log('No custom colors found in localStorage');
                     }
                 }
                 

@@ -1,5 +1,4 @@
 /* Common Poster Styles - Daskaka Theme System */
-
 :root {
   /* Default Theme Colors */
   --krishna-blue: #1e3a8a;
@@ -7,9 +6,6 @@
   --gold: #f59e0b;
   --navy: #093654;
   --card-bg: #fffaf9;
-  --poster-width: 420px;
-  --radius: 18px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.12);
   
   /* Theme Override Variables */
   --theme-primary: var(--krishna-blue);
@@ -18,24 +14,40 @@
   --theme-background: var(--card-bg);
 }
 
-html, body {
-  height: 100%;
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, #fff7f8 0%, #eef7ff 50%, #f7fff8 100%);
+  padding: 0;
 }
 
+html, body {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #fff7f8 0%, #eef7ff 50%, #f7fff8 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Responsive Grid Container */
+.posters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Individual Poster Container */
 .poster {
-  width: min(var(--poster-width), 92vw);
+  width: 100%;
+  max-width: 420px;
   aspect-ratio: 9/16;
   position: relative;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 16px 40px rgba(0,0,0,.14);
   background: linear-gradient(180deg, var(--theme-primary) 0%, #3b82f6 50%, var(--theme-secondary) 100%);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
@@ -59,7 +71,7 @@ html, body {
 
 /* Header Styles */
 header.top {
-  padding: 18px 18px 6px;
+  padding: 14px 18px 4px;
   text-align: center;
   flex: 0 0 auto;
   z-index: 2;
@@ -84,15 +96,15 @@ header.top {
   color: var(--theme-accent);
   font-weight: 700;
   letter-spacing: -0.02em;
-  font-size: 28px;
+  font-size: 22px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .big-offer {
-  margin-top: 8px;
+  margin-top: 6px;
   display: block;
   color: #fff;
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 800;
   text-shadow: 0 4px 12px rgba(0,0,0,0.3);
   line-height: 0.9;
@@ -100,20 +112,21 @@ header.top {
 
 .sub-title {
   color: #fef3c7;
-  margin-top: 6px;
+  margin-top: 4px;
   font-weight: 600;
-  font-size: 28px;
+  font-size: 20px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 /* Product Grid */
 .grid-wrap {
   padding: 14px;
-  flex: 0.7 1 auto;
+  flex: 1 1 auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   z-index: 2;
+  min-height: 0;
 }
 
 .grid-3-column {
@@ -122,6 +135,7 @@ header.top {
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   align-items: stretch;
+  grid-auto-rows: minmax(140px, auto);
 }
 
 .grid-4-column {
@@ -130,6 +144,7 @@ header.top {
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   align-items: stretch;
+  grid-auto-rows: minmax(140px, auto);
 }
 
 /* Pouch Cards */
@@ -140,19 +155,21 @@ header.top {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
-  min-height: 160px;
+  min-height: 140px;
   border: 2px solid rgba(245, 158, 11, 0.3);
   backdrop-filter: blur(5px);
 }
 
 .pouch .band {
-  background: var(--theme-primary);
+  background: transparent;
   color: #fff;
   text-align: center;
   padding: 8px 6px;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.06em;
+  height: 8px;
+  border-radius: 4px 4px 0 0;
 }
 
 .pouch .window {
@@ -166,7 +183,7 @@ header.top {
 .pouch .window img {
   width: 100%;
   height: auto;
-  max-height: 160px;
+  max-height: 140px;
   object-fit: cover;
   display: block;
   border-radius: 6px;
@@ -185,11 +202,11 @@ header.top {
 .tagline {
   text-align: center;
   color: #fef3c7;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
-  padding: 8px 12px;
+  padding: 6px 10px;
   background: rgba(30, 58, 138, 0.6);
-  margin: 6px 12px;
+  margin: 6px 12px 12px 12px;
   border-radius: 10px;
   align-self: center;
   z-index: 2;
@@ -207,15 +224,19 @@ footer.bottom {
 .offers {
   text-align: center;
   font-weight: 800;
-  font-size: 24px;
-  line-height: 1.05;
+  font-size: 18px;
+  line-height: 1.3;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100%;
+  padding: 0 10px;
 }
 
 .contacts {
-  margin-top: 8px;
+  margin-top: 6px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   color: rgba(255,255,255,0.95);
 }
@@ -243,11 +264,99 @@ footer.bottom {
 }
 
 /* Responsive Design */
-@media (max-width: 420px) {
-  :root {
-    --poster-width: 92vw;
+@media (max-width: 768px) {
+  .posters-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 15px;
   }
+  
+  .poster {
+    max-width: 350px;
+  }
+  
   .big-offer {
-    font-size: 36px;
+    font-size: 32px;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .sub-title {
+    font-size: 18px;
+  }
+  
+  .offers {
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .posters-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px;
+  }
+  
+  .poster {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .big-offer {
+    font-size: 28px;
+  }
+  
+  .title {
+    font-size: 18px;
+  }
+  
+  .sub-title {
+    font-size: 16px;
+  }
+  
+  .offers {
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 0 6px;
+  }
+  
+  .pouch {
+    min-height: 140px;
+  }
+  
+  .pouch .window img {
+    max-height: 120px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .posters-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    padding: 30px;
+  }
+  
+  .poster {
+    max-width: 450px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .posters-grid {
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 50px;
+    padding: 40px;
+  }
+  
+  .poster {
+    max-width: 500px;
   }
 }

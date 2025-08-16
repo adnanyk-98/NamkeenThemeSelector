@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="themes.css">
     <style>
-        /* Admin Panel Styles */
+        /* Simplified Admin Panel Styles */
         body {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: 'Poppins', sans-serif;
@@ -18,7 +18,7 @@
         }
 
         .admin-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -52,10 +52,23 @@
             min-height: 600px;
         }
 
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .control-panel {
             background: #f8fafc;
             padding: 30px;
             border-right: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            .control-panel {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
         }
 
         .preview-panel {
@@ -64,11 +77,21 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            gap: 20px;
         }
 
         .section {
             margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .theme-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 2px solid #e2e8f0;
         }
 
         .section h3 {
@@ -107,53 +130,226 @@
             color: white;
         }
 
-        .color-picker {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
+        /* Color Palette Styles */
+        .color-palette-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
         }
 
-        .color-input {
+        .color-palette-section h4 {
+            margin: 0 0 15px 0;
+            color: #1e293b;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .color-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .color-swatch span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #64748b;
+        }
+
+        .primary-color {
+            background: #1e3a8a;
+        }
+
+        .secondary-color {
+            background: #059669;
+        }
+
+        .accent-color {
+            background: #f59e0b;
+        }
+
+        .background-color {
+            background: #fffaf9;
+        }
+
+        /* Palette and Preview Container */
+        .palette-preview-container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .color-palette {
+            flex: 1;
+        }
+
+        /* Theme Preview */
+        .theme-preview {
+            width: 80px;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-header {
+            height: 30%;
+            background: var(--preview-primary, #1e3a8a);
+        }
+
+        .preview-body {
+            height: 50%;
+            background: var(--preview-secondary, #059669);
+        }
+
+        .preview-accent {
+            height: 20%;
+            background: var(--preview-accent, #f59e0b);
+        }
+
+        /* Custom Color Controls */
+        .custom-color-controls {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .custom-color-controls h4 {
+            margin: 0 0 15px 0;
+            color: #1e293b;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .custom-color-description {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .custom-color-description p {
+            margin: 0 0 10px 0;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        .custom-color-description ol,
+        .custom-color-description ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .custom-color-description li {
+            margin-bottom: 5px;
+            color: #4b5563;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .custom-color-description strong {
+            color: #1e293b;
+        }
+
+        .custom-color-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .custom-color-input {
             display: flex;
             flex-direction: column;
             gap: 5px;
         }
 
-        .color-input label {
+        .custom-color-input label {
+            font-size: 0.8rem;
             font-weight: 600;
             color: #374151;
-            font-size: 0.9rem;
         }
 
-        .color-input input[type="color"] {
+        .custom-color-input input[type="color"] {
             width: 100%;
             height: 40px;
-            border: none;
-            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
             cursor: pointer;
         }
 
-        .css-editor {
+        .custom-color-input input[type="color"]:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .customization-section {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 12px;
             margin-bottom: 20px;
         }
 
-        .css-editor textarea {
-            width: 100%;
-            height: 200px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 15px;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            resize: vertical;
+        .customization-section h4 {
+            margin: 0 0 15px 0;
+            color: #1e293b;
+            font-size: 1.1rem;
         }
 
-        .button-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .input-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
         }
 
         .btn {
@@ -164,6 +360,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.9rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
         }
 
         .btn-primary {
@@ -185,15 +383,6 @@
             background: #4b5563;
         }
 
-        .btn-danger {
-            background: #dc2626;
-            color: white;
-        }
-
-        .btn-danger:hover {
-            background: #b91c1c;
-        }
-
         .poster-preview {
             width: 300px;
             height: 533px;
@@ -201,16 +390,18 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             position: relative;
+            flex-shrink: 0;
         }
 
         .poster-links {
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: center;
+            width: 100%;
         }
 
         .poster-links a {
             display: inline-block;
-            margin: 0 10px;
+            margin: 10px;
             padding: 12px 24px;
             background: #3b82f6;
             color: white;
@@ -218,29 +409,12 @@
             border-radius: 8px;
             font-weight: 600;
             transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .poster-links a:hover {
             background: #2563eb;
             transform: translateY(-2px);
-        }
-
-        .export-section {
-            margin-top: 20px;
-            padding: 20px;
-            background: #f1f5f9;
-            border-radius: 12px;
-        }
-
-        .export-section h4 {
-            margin: 0 0 15px 0;
-            color: #1e293b;
-        }
-
-        .export-buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
         }
 
         .notification {
@@ -255,24 +429,61 @@
             z-index: 1000;
             transform: translateX(400px);
             transition: transform 0.3s ease;
+            max-width: 300px;
         }
 
         .notification.show {
             transform: translateX(0);
         }
 
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
+        .instructions-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        .instructions-box strong {
+            color: #1e293b;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
             }
             
-            .control-panel {
-                border-right: none;
-                border-bottom: 1px solid #e2e8f0;
+            .admin-container {
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .control-panel,
+            .preview-panel {
+                padding: 20px;
             }
             
             .theme-selector {
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+            
+            .theme-option {
+                padding: 12px 8px;
+                font-size: 0.8rem;
+            }
+            
+            .poster-preview {
+                width: 250px;
+                height: 444px;
             }
         }
     </style>
@@ -281,97 +492,148 @@
     <div class="admin-container">
         <div class="header">
             <h1>🎨 Daskaka Poster Theme Manager</h1>
-            <p>Customize themes, edit CSS, and export posters with ease</p>
+            <p>Customize themes and content for your posters</p>
         </div>
 
         <div class="main-content">
-            <div class="control-panel">
-                <!-- Theme Selection -->
-                <div class="section">
-                    <h3>🎭 Select Theme</h3>
-                    <div class="theme-selector">
-                        <div class="theme-option active" data-theme="janmashtami">Janmashtami</div>
-                        <div class="theme-option" data-theme="diwali">Diwali</div>
-                        <div class="theme-option" data-theme="holi">Holi</div>
-                        <div class="theme-option" data-theme="navratri">Navratri</div>
-                        <div class="theme-option" data-theme="republic">Republic Day</div>
-                        <div class="theme-option" data-theme="independence">Independence</div>
-                        <div class="theme-option" data-theme="christmas">Christmas</div>
-                        <div class="theme-option" data-theme="custom">Custom</div>
+            <!-- Theme Selection Section (Moved Above) -->
+            <div class="section theme-section">
+                <div class="preview-panel">
+                    <h3>👀 Quick Access</h3>
+                    
+                    <div class="poster-links">
+                        <div class="instructions-box">
+                            <strong>💡 How to Use:</strong><br>
+                            1. Select a theme from below<br>
+                            2. Customize dates, offers, and contact info<br>
+                            3. View all posters in the grid layout<br>
+                            4. All changes apply automatically!
+                        </div>
+                        <a href="posters-grid.html" class="btn btn-primary" style="margin: 20px 0; padding: 15px 30px; font-size: 1.1rem;">🎨 View All Posters</a>
                     </div>
                 </div>
-
-                <!-- Color Customization -->
-                <div class="section">
-                    <h3>🎨 Customize Colors</h3>
-                    <div class="color-picker">
-                        <div class="color-input">
-                            <label>Primary Color</label>
-                            <input type="color" id="primaryColor" value="#1e3a8a">
-                        </div>
-                        <div class="color-input">
-                            <label>Secondary Color</label>
-                            <input type="color" id="secondaryColor" value="#059669">
-                        </div>
-                        <div class="color-input">
-                            <label>Accent Color</label>
-                            <input type="color" id="accentColor" value="#f59e0b">
-                        </div>
-                        <div class="color-input">
-                            <label>Background</label>
-                            <input type="color" id="backgroundColor" value="#fffaf9">
-                        </div>
-                    </div>
-                    <div class="button-group">
-                        <button class="btn btn-primary" onclick="applyCustomColors()">Apply Colors</button>
-                        <button class="btn btn-secondary" onclick="resetColors()">Reset</button>
-                    </div>
+                <h3>🎭 Select Theme</h3>
+                <div class="theme-selector">
+                    <div class="theme-option active" data-theme="janmashtami">Janmashtami</div>
+                    <div class="theme-option" data-theme="diwali">Diwali</div>
+                    <div class="theme-option" data-theme="holi">Holi</div>
+                    <div class="theme-option" data-theme="navratri">Navratri</div>
+                    <div class="theme-option" data-theme="republic">Republic Day</div>
+                    <div class="theme-option" data-theme="independence">Independence</div>
+                    <div class="theme-option" data-theme="christmas">Christmas</div>
+                    <div class="theme-option" data-theme="custom">Custom</div>
                 </div>
-
-                <!-- CSS Editor -->
-                <div class="section">
-                    <h3>💻 Custom CSS Editor</h3>
-                    <div class="css-editor">
-                        <textarea id="cssEditor" placeholder="Add your custom CSS here...">/* Custom CSS */
-.poster {
-  /* Your custom styles */
-}</textarea>
+                
+                <!-- Color Palette Display -->
+                <div class="color-palette-section">
+                    <div class="palette-preview-container">
+                        <div class="color-palette" id="colorPalette">
+                            <div class="color-swatch">
+                                <div class="color-box primary-color"></div>
+                                <span>Primary</span>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-box secondary-color"></div>
+                                <span>Secondary</span>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-box accent-color"></div>
+                                <span>Accent</span>
+                            </div>
+                            <div class="color-swatch">
+                                <div class="color-box background-color"></div>
+                                <span>Background</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Theme Preview -->
+                        <div class="theme-preview" id="themePreview">
+                            <div class="preview-header"></div>
+                            <div class="preview-body"></div>
+                            <div class="preview-accent"></div>
+                        </div>
                     </div>
-                    <div class="button-group">
-                        <button class="btn btn-primary" onclick="applyCustomCSS()">Apply CSS</button>
-                        <button class="btn btn-secondary" onclick="resetCSS()">Reset CSS</button>
-                    </div>
-                </div>
-
-                <!-- Export Section -->
-                <div class="export-section">
-                    <h4>📤 Export Options</h4>
-                    <div class="export-buttons">
-                        <button class="btn btn-primary" onclick="exportCurrentTheme()">Export Theme</button>
-                        <button class="btn btn-secondary" onclick="downloadCSS()">Download CSS</button>
-                        <button class="btn btn-danger" onclick="resetAll()">Reset All</button>
+                    
+                    <!-- Custom Color Controls (hidden by default) -->
+                    <div class="custom-color-controls" id="customColorControls" style="display: none;">
+                        <h4>🎨 Custom Colors</h4>
+                        <div class="custom-color-description">
+                            <p><strong>How to Use Custom Colors:</strong></p>
+                            <ol>
+                                <li><strong>Select "Custom" theme</strong> from the theme options above</li>
+                                <li><strong>Choose your colors</strong> using the color pickers below</li>
+                                <li><strong>Click "Apply Custom Colors"</strong> to save and apply</li>
+                                <li><strong>View your posters</strong> - colors will be applied automatically!</li>
+                            </ol>
+                            <p><strong>Color Usage:</strong></p>
+                            <ul>
+                                <li><strong>Primary:</strong> Main background gradient and header elements</li>
+                                <li><strong>Secondary:</strong> Secondary gradient and accent elements</li>
+                                <li><strong>Accent:</strong> Highlights, borders, and special elements</li>
+                                <li><strong>Background:</strong> Product pouch backgrounds</li>
+                            </ul>
+                        </div>
+                        <div class="custom-color-inputs">
+                            <div class="custom-color-input">
+                                <label>Primary Color</label>
+                                <input type="color" id="customPrimary" value="#1e3a8a">
+                            </div>
+                            <div class="custom-color-input">
+                                <label>Secondary Color</label>
+                                <input type="color" id="customSecondary" value="#059669">
+                            </div>
+                            <div class="custom-color-input">
+                                <label>Accent Color</label>
+                                <input type="color" id="customAccent" value="#f59e0b">
+                            </div>
+                            <div class="custom-color-input">
+                                <label>Background Color</label>
+                                <input type="color" id="customBackground" value="#fffaf9">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="applyCustomColors()">Apply Custom Colors</button>
+                        <button class="btn btn-secondary" onclick="debugCustomColors()" style="margin-left: 10px;">Debug Colors</button>
                     </div>
                 </div>
             </div>
 
-            <div class="preview-panel">
-                <h3>👀 Live Preview</h3>
-                <div class="poster-preview" id="posterPreview">
-                    <!-- Poster preview will be loaded here -->
-                </div>
-                
-                <div class="poster-links">
-                    <div style="margin-bottom: 15px; padding: 10px; background: #f1f5f9; border-radius: 8px; font-size: 0.9rem; color: #374151;">
-                        <strong>💡 How to Use:</strong><br>
-                        1. Select a theme from above<br>
-                        2. Open posters in separate tabs using the links below<br>
-                        3. Posters automatically detect and apply the selected theme!<br>
-                        4. Change themes anytime - posters update instantly across all tabs
+            <div class="control-panel">
+                <!-- Content Customization -->
+                <div class="section">
+                    <h3>✏️ Customize Content</h3>
+                    <div class="customization-section">
+                        <h4>📅 Dates & Offers</h4>
+                        <div class="input-group">
+                            <label for="customDates">Dates</label>
+                            <input type="text" id="customDates" value="16th & 17th Aug" placeholder="Enter dates">
+                        </div>
+                        <div class="input-group">
+                            <label for="customOffer">Special Offer</label>
+                            <input type="text" id="customOffer" value="UPTO 30% OFF" placeholder="Enter offer text">
+                        </div>
+                        <div class="input-group">
+                            <label for="customDeal">Deal Details (500gm & 200gm)</label>
+                            <textarea id="customDeal" rows="3" placeholder="Enter deal details (press Enter for new line)">BUY 2 × 500g PACKS FOR ₹ 240
+BUY 3 × 200g PACKS FOR ₹ 150</textarea>
+                        </div>
                     </div>
-                    <a href="poster1.html" target="poster1">View Poster 1</a>
-                    <a href="poster2.html" target="poster2">View Poster 2</a>
-                    <a href="poster3.html" target="poster3">View Poster 3</a>
-                    <button class="btn btn-primary" onclick="applyCurrentThemeToAllPosters()" style="margin-top: 15px; width: 100%;">Refresh Theme (Force Update)</button>
+                    
+                    <div class="customization-section">
+                        <h4>📞 Contact Information</h4>
+                        <div class="input-group">
+                            <label for="customContact">Contact Number</label>
+                            <input type="text" id="customContact" value="+91 99043 44252" placeholder="Enter contact number">
+                        </div>
+                        <div class="input-group">
+                            <label for="customTagline">Tagline</label>
+                            <input type="text" id="customTagline" value="Har bite ma Surat no swaad!" placeholder="Enter tagline">
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn btn-primary" onclick="applyCustomizations()">Apply Changes</button>
+                        <button class="btn btn-secondary" onclick="resetCustomizations()">Reset</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -380,12 +642,20 @@
     <script>
         // Theme Management System
         let currentTheme = 'janmashtami';
-        let customCSS = '';
+        let customizations = {
+            dates: '16th & 17th Aug',
+            offer: 'UPTO 30% OFF',
+            deal: 'BUY 2 × 500g PACKS FOR ₹ 240<br>BUY 3 × 200g PACKS FOR ₹ 150',
+            contact: '+91 99043 44252',
+            tagline: 'Har bite ma Surat no swaad!'
+        };
 
         // Initialize the system
         document.addEventListener('DOMContentLoaded', function() {
-            loadThemePreview();
             setupEventListeners();
+            loadStoredCustomizations();
+            loadStoredCustomColors();
+            updateColorPalette(currentTheme);
         });
 
         function setupEventListeners() {
@@ -396,53 +666,270 @@
                     this.classList.add('active');
                     currentTheme = this.dataset.theme;
                     applyTheme(currentTheme);
-                    loadThemePreview();
                 });
             });
-
-            // Color picker changes
-            document.getElementById('primaryColor').addEventListener('change', updatePreview);
-            document.getElementById('secondaryColor').addEventListener('change', updatePreview);
-            document.getElementById('accentColor').addEventListener('change', updatePreview);
-            document.getElementById('backgroundColor').addEventListener('change', updatePreview);
         }
 
         function applyTheme(themeName) {
-            // Remove all theme classes from html element
-            document.documentElement.classList.remove('theme-janmashtami', 'theme-diwali', 'theme-holi', 
-                'theme-navratri', 'theme-republic', 'theme-independence', 'theme-christmas', 'theme-custom');
-            
-            // Add selected theme class to html element for preview
-            if (themeName !== 'custom') {
-                document.documentElement.classList.add(`theme-${themeName}`);
-            }
-            
-            // Update CSS variables for custom theme
-            if (themeName === 'custom') {
-                applyCustomColors();
-            }
-            
             // Store the current theme in localStorage so posters can access it
             localStorage.setItem('daskaka-current-theme', themeName);
             if (themeName !== 'custom') {
                 localStorage.setItem('daskaka-theme-class', `theme-${themeName}`);
             } else {
                 localStorage.setItem('daskaka-theme-class', 'theme-custom');
+                // Load and apply stored custom colors if they exist
+                const storedColors = localStorage.getItem('daskaka-custom-colors');
+                if (storedColors) {
+                    try {
+                        const colors = JSON.parse(storedColors);
+                        applyCustomTheme(colors);
+                    } catch (e) {
+                        console.log('Error loading stored custom colors:', e);
+                    }
+                }
             }
             
-            // Store custom colors if it's a custom theme
+            updateColorPalette(themeName);
+            showNotification(`Theme "${themeName}" selected!`);
+        }
+
+        function updateColorPalette(themeName) {
+            const colorPalette = document.getElementById('colorPalette');
+            const primaryColor = colorPalette.querySelector('.primary-color');
+            const secondaryColor = colorPalette.querySelector('.secondary-color');
+            const accentColor = colorPalette.querySelector('.accent-color');
+            const backgroundColor = colorPalette.querySelector('.background-color');
+            const themePreview = document.getElementById('themePreview');
+            const customControls = document.getElementById('customColorControls');
+
+            // Theme color definitions
+            const themeColors = {
+                janmashtami: {
+                    primary: '#1e3a8a',
+                    secondary: '#059669',
+                    accent: '#f59e0b',
+                    background: '#fffaf9'
+                },
+                diwali: {
+                    primary: '#dc2626',
+                    secondary: '#f59e0b',
+                    accent: '#fbbf24',
+                    background: '#fef3c7'
+                },
+                holi: {
+                    primary: '#ec4899',
+                    secondary: '#06b6d4',
+                    accent: '#10b981',
+                    background: '#fdf2f8'
+                },
+                navratri: {
+                    primary: '#7c3aed',
+                    secondary: '#f59e0b',
+                    accent: '#ec4899',
+                    background: '#faf5ff'
+                },
+                republic: {
+                    primary: '#dc2626',
+                    secondary: '#059669',
+                    accent: '#f59e0b',
+                    background: '#fef2f2'
+                },
+                independence: {
+                    primary: '#dc2626',
+                    secondary: '#059669',
+                    accent: '#f59e0b',
+                    background: '#fef2f2'
+                },
+                christmas: {
+                    primary: '#dc2626',
+                    secondary: '#059669',
+                    accent: '#f59e0b',
+                    background: '#f0fdf4'
+                },
+                custom: {
+                    primary: '#1e3a8a',
+                    secondary: '#059669',
+                    accent: '#f59e0b',
+                    background: '#fffaf9'
+                }
+            };
+
+            const colors = themeColors[themeName] || themeColors.janmashtami;
+            
+            // Update color palette
+            primaryColor.style.background = colors.primary;
+            secondaryColor.style.background = colors.secondary;
+            accentColor.style.background = colors.accent;
+            backgroundColor.style.background = colors.background;
+            
+            // Update theme preview
+            themePreview.style.setProperty('--preview-primary', colors.primary);
+            themePreview.style.setProperty('--preview-secondary', colors.secondary);
+            themePreview.style.setProperty('--preview-accent', colors.accent);
+            
+            // Show/hide custom controls
             if (themeName === 'custom') {
-                const primary = document.getElementById('primaryColor').value;
-                const secondary = document.getElementById('secondaryColor').value;
-                const accent = document.getElementById('accentColor').value;
-                const background = document.getElementById('backgroundColor').value;
-                
-                localStorage.setItem('daskaka-custom-colors', JSON.stringify({
-                    primary, secondary, accent, background
-                }));
+                customControls.style.display = 'block';
+                // Set current custom colors
+                document.getElementById('customPrimary').value = colors.primary;
+                document.getElementById('customSecondary').value = colors.secondary;
+                document.getElementById('customAccent').value = colors.accent;
+                document.getElementById('customBackground').value = colors.background;
+            } else {
+                customControls.style.display = 'none';
+            }
+        }
+
+        function applyCustomColors() {
+            const primary = document.getElementById('customPrimary').value;
+            const secondary = document.getElementById('customSecondary').value;
+            const accent = document.getElementById('customAccent').value;
+            const background = document.getElementById('customBackground').value;
+            
+            console.log('Applying custom colors:', { primary, secondary, accent, background });
+            
+            // Update color palette
+            const colorPalette = document.getElementById('colorPalette');
+            colorPalette.querySelector('.primary-color').style.background = primary;
+            colorPalette.querySelector('.secondary-color').style.background = secondary;
+            colorPalette.querySelector('.accent-color').style.background = accent;
+            colorPalette.querySelector('.background-color').style.background = background;
+            
+            // Update theme preview
+            const themePreview = document.getElementById('themePreview');
+            themePreview.style.setProperty('--preview-primary', primary);
+            themePreview.style.setProperty('--preview-secondary', secondary);
+            themePreview.style.setProperty('--preview-accent', accent);
+            
+            // Store custom colors in localStorage
+            const customColors = { primary, secondary, accent, background };
+            localStorage.setItem('daskaka-custom-colors', JSON.stringify(customColors));
+            console.log('Custom colors stored in localStorage:', customColors);
+            
+            // Apply custom theme to posters
+            applyCustomTheme(customColors);
+            
+            // Trigger storage event to update other tabs
+            window.dispatchEvent(new StorageEvent('storage', {
+                key: 'daskaka-custom-colors',
+                newValue: JSON.stringify(customColors)
+            }));
+            
+            showNotification('Custom colors applied! Check console for debug info.');
+        }
+
+        function applyCustomTheme(colors) {
+            // Store custom theme data
+            localStorage.setItem('daskaka-custom-colors', JSON.stringify(colors));
+            localStorage.setItem('daskaka-theme-class', 'theme-custom');
+            localStorage.setItem('daskaka-current-theme', 'custom');
+            
+            // Apply custom colors to the current page if it's a poster
+            if (document.querySelector('.poster')) {
+                document.documentElement.style.setProperty('--theme-primary', colors.primary);
+                document.documentElement.style.setProperty('--theme-secondary', colors.secondary);
+                document.documentElement.style.setProperty('--theme-accent', colors.accent);
+                document.documentElement.style.setProperty('--theme-background', colors.background);
+            }
+        }
+
+        function loadStoredCustomColors() {
+            const storedColors = localStorage.getItem('daskaka-custom-colors');
+            if (storedColors) {
+                try {
+                    const colors = JSON.parse(storedColors);
+                    // Update custom color inputs
+                    document.getElementById('customPrimary').value = colors.primary;
+                    document.getElementById('customSecondary').value = colors.secondary;
+                    document.getElementById('customAccent').value = colors.accent;
+                    document.getElementById('customBackground').value = colors.background;
+                } catch (e) {
+                    console.log('Error loading stored custom colors:', e);
+                }
+            }
+        }
+
+        function debugCustomColors() {
+            console.log('=== Custom Colors Debug ===');
+            console.log('Current theme:', localStorage.getItem('daskaka-current-theme'));
+            console.log('Theme class:', localStorage.getItem('daskaka-theme-class'));
+            
+            const storedColors = localStorage.getItem('daskaka-custom-colors');
+            console.log('Stored custom colors:', storedColors);
+            
+            if (storedColors) {
+                try {
+                    const colors = JSON.parse(storedColors);
+                    console.log('Parsed custom colors:', colors);
+                    
+                    // Test applying colors directly
+                    document.documentElement.style.setProperty('--theme-primary', colors.primary);
+                    document.documentElement.style.setProperty('--theme-secondary', colors.secondary);
+                    document.documentElement.style.setProperty('--theme-accent', colors.accent);
+                    document.documentElement.style.setProperty('--theme-background', colors.background);
+                    
+                    console.log('Custom colors applied directly to document root');
+                } catch (e) {
+                    console.log('Error parsing custom colors:', e);
+                }
+            } else {
+                console.log('No custom colors found in localStorage');
             }
             
-            showNotification(`Theme "${themeName}" selected and saved! Open posters to see changes.`);
+            showNotification('Debug info logged to console');
+        }
+
+        function applyCustomizations() {
+            // Get current values
+            customizations.dates = document.getElementById('customDates').value;
+            customizations.offer = document.getElementById('customOffer').value;
+            customizations.deal = document.getElementById('customDeal').value.replace(/\n/g, '<br>');
+            customizations.contact = document.getElementById('customContact').value;
+            customizations.tagline = document.getElementById('customTagline').value;
+            
+            // Store in localStorage
+            localStorage.setItem('daskaka-customizations', JSON.stringify(customizations));
+            
+            showNotification('Customizations applied!');
+        }
+
+        function resetCustomizations() {
+            // Reset to default values
+            customizations = {
+                dates: '16th & 17th Aug',
+                offer: 'UPTO 30% OFF',
+                deal: 'BUY 2 × 500g PACKS FOR ₹ 240<br>BUY 3 × 200g PACKS FOR ₹ 150',
+                contact: '+91 99043 44252 | +91 96620 20252',
+                tagline: 'Har bite ma Surat no swaad!'
+            };
+            
+            // Update form fields
+            document.getElementById('customDates').value = customizations.dates;
+            document.getElementById('customOffer').value = customizations.offer;
+            document.getElementById('customDeal').value = customizations.deal.replace(/<br>/g, '\n');
+            document.getElementById('customContact').value = customizations.contact;
+            document.getElementById('customTagline').value = customizations.tagline;
+            
+            // Store in localStorage
+            localStorage.setItem('daskaka-customizations', JSON.stringify(customizations));
+            
+            showNotification('Customizations reset to default!');
+        }
+
+        function loadStoredCustomizations() {
+            const stored = localStorage.getItem('daskaka-customizations');
+            if (stored) {
+                try {
+                    customizations = JSON.parse(stored);
+                    document.getElementById('customDates').value = customizations.dates;
+                    document.getElementById('customOffer').value = customizations.offer;
+                    document.getElementById('customDeal').value = customizations.deal.replace(/<br>/g, '\n');
+                    document.getElementById('customContact').value = customizations.contact;
+                    document.getElementById('customTagline').value = customizations.tagline;
+                } catch (e) {
+                    console.log('Error loading stored customizations:', e);
+                }
+            }
         }
 
         function showNotification(message, duration = 3000) {
@@ -464,240 +951,6 @@
                 notification.classList.remove('show');
                 setTimeout(() => notification.remove(), 300);
             }, duration);
-        }
-
-        // Helper function to find existing poster windows without creating new ones
-        function findExistingPosterWindows() {
-            const posterWindows = [];
-            
-            // Since we can't easily find existing windows due to browser security,
-            // we'll use a different approach - we'll store references when posters are opened
-            // For now, return empty array to prevent blank windows
-            return posterWindows;
-        }
-
-        function applyThemeToPosters(themeName) {
-            // Get all open poster windows/tabs
-            const posterWindows = findExistingPosterWindows();
-            
-            // Apply theme to each open poster
-            let appliedCount = 0;
-            posterWindows.forEach(poster => {
-                try {
-                    const posterDoc = poster.window.document;
-                    
-                    // Remove all existing theme classes from body
-                    posterDoc.body.classList.remove('theme-janmashtami', 'theme-diwali', 'theme-holi', 
-                        'theme-navratri', 'theme-republic', 'theme-independence', 'theme-christmas', 'theme-custom');
-                    
-                    // Add new theme class
-                    if (themeName !== 'custom') {
-                        posterDoc.body.classList.add(`theme-${themeName}`);
-                    }
-                    
-                    // Apply custom colors if it's a custom theme
-                    if (themeName === 'custom') {
-                        applyCustomColorsToPoster(posterDoc);
-                    }
-                    
-                    appliedCount++;
-                    console.log(`Theme ${themeName} applied to ${poster.name}`);
-                } catch (e) {
-                    console.log(`Could not apply theme to ${poster.name}:`, e);
-                }
-            });
-            
-            if (appliedCount > 0) {
-                showNotification(`Theme "${themeName}" applied to ${appliedCount} poster(s)`);
-            } else {
-                showNotification(`Theme "${themeName}" selected. Open posters to see changes!`);
-            }
-        }
-
-        function applyCustomColorsToPoster(posterDoc) {
-            const primary = document.getElementById('primaryColor').value;
-            const secondary = document.getElementById('secondaryColor').value;
-            const accent = document.getElementById('accentColor').value;
-            const background = document.getElementById('backgroundColor').value;
-
-            posterDoc.documentElement.style.setProperty('--theme-primary', primary);
-            posterDoc.documentElement.style.setProperty('--theme-secondary', secondary);
-            posterDoc.documentElement.style.setProperty('--theme-accent', accent);
-            posterDoc.documentElement.style.setProperty('--theme-background', background);
-        }
-
-        function applyCustomColors() {
-            const primary = document.getElementById('primaryColor').value;
-            const secondary = document.getElementById('secondaryColor').value;
-            const accent = document.getElementById('accentColor').value;
-            const background = document.getElementById('backgroundColor').value;
-
-            document.documentElement.style.setProperty('--theme-primary', primary);
-            document.documentElement.style.setProperty('--theme-secondary', secondary);
-            document.documentElement.style.setProperty('--theme-accent', accent);
-            document.documentElement.style.setProperty('--theme-background', background);
-            
-            // Save custom colors to localStorage
-            localStorage.setItem('daskaka-custom-colors', JSON.stringify({
-                primary, secondary, accent, background
-            }));
-            
-            // Also apply to open posters
-            applyCustomColorsToPosters();
-        }
-
-        function applyCustomColorsToPosters() {
-            // Apply custom colors to all open poster windows
-            const posterWindows = findExistingPosterWindows();
-            
-            posterWindows.forEach(poster => {
-                try {
-                    applyCustomColorsToPoster(poster.window.document);
-                } catch (e) {}
-            });
-        }
-
-        function applyCustomCSS() {
-            customCSS = document.getElementById('cssEditor').value;
-            
-            // Remove existing custom CSS
-            const existingStyle = document.getElementById('customCSS');
-            if (existingStyle) {
-                existingStyle.remove();
-            }
-            
-            // Add new custom CSS
-            if (customCSS.trim()) {
-                const style = document.createElement('style');
-                style.id = 'customCSS';
-                style.textContent = customCSS;
-                document.head.appendChild(style);
-            }
-        }
-
-        function resetColors() {
-            document.getElementById('primaryColor').value = '#1e3a8a';
-            document.getElementById('secondaryColor').value = '#059669';
-            document.getElementById('accentColor').value = '#f59e0b';
-            document.getElementById('backgroundColor').value = '#fffaf9';
-            applyCustomColors();
-        }
-
-        function resetCSS() {
-            document.getElementById('cssEditor').value = '';
-            customCSS = '';
-            const existingStyle = document.getElementById('customCSS');
-            if (existingStyle) {
-                existingStyle.remove();
-            }
-        }
-
-        function resetAll() {
-            resetColors();
-            resetCSS();
-            applyTheme('janmashtami');
-            document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('active'));
-            document.querySelector('[data-theme="janmashtami"]').classList.add('active');
-            currentTheme = 'janmashtami';
-        }
-
-        function loadThemePreview() {
-            const preview = document.getElementById('posterPreview');
-            preview.innerHTML = `
-                <div class="poster" style="width: 100%; height: 100%;">
-                    <header class="top">
-                        <div class="title">SPECIAL OFFER</div>
-                        <div class="big-offer">UPTO 30% OFF</div>
-                        <div class="sub-title">16th & 17th Aug</div>
-                    </header>
-                    <div class="grid-wrap">
-                        <div class="grid-3-column">
-                            <div class="pouch">
-                                <div class="window">
-                                    <div style="width: 100%; height: 120px; background: #ddd; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #666;">Image</div>
-                                </div>
-                                <div class="label">Product Name</div>
-                            </div>
-                            <div class="pouch">
-                                <div class="window">
-                                    <div style="width: 100%; height: 120px; background: #ddd; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #666;">Image</div>
-                                </div>
-                                <div class="label">Product Name</div>
-                            </div>
-                            <div class="pouch">
-                                <div class="window">
-                                    <div style="width: 100%; height: 120px; background: #ddd; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #666;">Image</div>
-                                </div>
-                                <div class="label">Product Name</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tagline">Har bite ma Surat no swaad!</div>
-                    <footer class="bottom">
-                        <div class="offers">BUY 2 × 500g PACKS FOR ₹ 240</div>
-                        <div class="contacts">+91 99043 44252</div>
-                    </footer>
-                </div>
-            `;
-        }
-
-        function updatePreview() {
-            if (currentTheme === 'custom') {
-                applyCustomColors();
-            }
-        }
-
-        function exportCurrentTheme() {
-            const themeData = {
-                theme: currentTheme,
-                colors: {
-                    primary: document.getElementById('primaryColor').value,
-                    secondary: document.getElementById('secondaryColor').value,
-                    accent: document.getElementById('accentColor').value,
-                    background: document.getElementById('backgroundColor').value
-                },
-                customCSS: customCSS,
-                timestamp: new Date().toISOString()
-            };
-            
-            const blob = new Blob([JSON.stringify(themeData, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `daskaka-theme-${currentTheme}-${Date.now()}.json`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function downloadCSS() {
-            const cssContent = `
-/* Daskaka Theme: ${currentTheme} */
-/* Generated on: ${new Date().toLocaleString()} */
-
-:root {
-  --theme-primary: ${document.getElementById('primaryColor').value};
-  --theme-secondary: ${document.getElementById('secondaryColor').value};
-  --theme-accent: ${document.getElementById('accentColor').value};
-  --theme-background: ${document.getElementById('backgroundColor').value};
-}
-
-${customCSS}
-            `;
-            
-            const blob = new Blob([cssContent], { type: 'text/css' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `daskaka-theme-${currentTheme}.css`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function applyCurrentThemeToAllPosters() {
-            // Force a refresh of the current theme in localStorage
-            applyTheme(currentTheme);
-            
-            showNotification('Theme refreshed! Posters should update automatically.');
         }
     </script>
 </body>

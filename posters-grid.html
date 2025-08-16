@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daskaka Posters - Grid View</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="themes.css">
+    <style>
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #059669;
+            margin-bottom: 20px;
+        }
+        
+        .theme-manager-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #059669 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .theme-manager-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .posters-grid {
+                gap: 20px;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .posters-grid {
+                gap: 15px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <h1 class="page-title">🎨 Daskaka Posters</h1>
+        <p class="page-subtitle">Beautiful festival-themed posters for your business</p>
+        <a href="index.html" class="theme-manager-link">🎭 Customize Themes & Content</a>
+    </div>
+
+    <div class="posters-grid">
+        <!-- Poster 1 -->
+        <div class="poster">
+            <header class="top">
+                <div class="title">SPECIAL OFFER</div>
+                <div class="big-offer">UPTO 30% OFF</div>
+                <div class="sub-title">16th & 17th Aug</div>
+            </header>
+            
+            <div class="grid-wrap">
+                <div class="grid-4-column">
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="1. Surati Mix.jpg" alt="Surati Mix">
+                        </div>
+                        <div class="label">Surati Mix</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="2. Surati Special.jpg" alt="Surati Special">
+                        </div>
+                        <div class="label">Surati Special</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="3. Bhakarwadi.jpg" alt="Bhakarwadi">
+                        </div>
+                        <div class="label">Bhakarwadi</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="4. Bhatha Kani.jpg" alt="Bhatha Kani">
+                        </div>
+                        <div class="label">Bhatha Kani</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="5. Dal Mooth.jpg" alt="Dal Mooth">
+                        </div>
+                        <div class="label">Dal Mooth</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="6. Navratna Mix.jpg" alt="Navratna Mix">
+                        </div>
+                        <div class="label">Navratna Mix</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="7. Tikha Mix.jpg" alt="Tikha Mix">
+                        </div>
+                        <div class="label">Tikha Mix</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="8. Bhavnagri Gathiya.jpg" alt="Bhavnagri Gathiya">
+                        </div>
+                        <div class="label">Bhavnagri Gathiya</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tagline">Har bite ma Surat no swaad!</div>
+            
+            <footer class="bottom">
+                <div class="offers">BUY 2 × 500g PACKS FOR ₹ 240<br>BUY 3 × 200g PACKS FOR ₹ 150</div>
+                <div class="contacts">+91 99043 44252</div>
+            </footer>
+            
+            <div class="toolbar">
+                <button onclick="downloadPoster(this)">📥</button>
+            </div>
+        </div>
+
+        <!-- Poster 2 -->
+        <div class="poster">
+            <header class="top">
+                <div class="title">SPECIAL OFFER</div>
+                <div class="big-offer">UPTO 30% OFF</div>
+                <div class="sub-title">16th & 17th Aug</div>
+            </header>
+            
+            <div class="grid-wrap">
+                <div class="grid-3-column">
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="9. Ratlami Sev.jpg" alt="Ratlami Sev">
+                        </div>
+                        <div class="label">Ratlami Sev</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="10. Plain Sev.jpg" alt="Plain Sev">
+                        </div>
+                        <div class="label">Plain Sev</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="11. Marwadi Sev.jpg" alt="Marwadi Sev">
+                        </div>
+                        <div class="label">Marwadi Sev</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="12. Nylon Sev.jpg" alt="Nylon Sev">
+                        </div>
+                        <div class="label">Nylon Sev</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="13. Bundi.jpg" alt="Bundi">
+                        </div>
+                        <div class="label">Bundi</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="14. Manglori Mix.jpg" alt="Manglori Mix">
+                        </div>
+                        <div class="label">Manglori Mix</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tagline">Har bite ma Surat no swaad!</div>
+            
+            <footer class="bottom">
+                <div class="offers">BUY 2 × 500g PACKS FOR ₹ 240<br>BUY 3 × 200g PACKS FOR ₹ 150</div>
+                <div class="contacts">+91 99043 44252</div>
+            </footer>
+            
+            <div class="toolbar">
+                <button onclick="downloadPoster(this)">📥</button>
+            </div>
+        </div>
+
+        <!-- Poster 3 -->
+        <div class="poster">
+            <header class="top">
+                <div class="title">SPECIAL OFFER</div>
+                <div class="big-offer">UPTO 30% OFF</div>
+                <div class="sub-title">16th & 17th Aug</div>
+            </header>
+            
+            <div class="grid-wrap">
+                <div class="grid-3-column">
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="15. Bombay Mix.jpg" alt="Bombay Mix">
+                        </div>
+                        <div class="label">Bombay Mix</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="16. Garlic Mix.jpg" alt="Garlic Mix">
+                        </div>
+                        <div class="label">Garlic Mix</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="17. Nadiyadi Mix.jpg" alt="Nadiyadi Mix">
+                        </div>
+                        <div class="label">Nadiyadi Mix</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="18. Chana Dal.jpg" alt="Chana Dal">
+                        </div>
+                        <div class="label">Chana Dal</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="19. Potato Chips.jpg" alt="Potato Chips">
+                        </div>
+                        <div class="label">Potato Chips</div>
+                    </div>
+                    <div class="pouch">
+                        <div class="window">
+                            <img src="20. Banana Chips.jpg" alt="Banana Chips">
+                        </div>
+                        <div class="label">Banana Chips</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tagline">Har bite ma Surat no swaad!</div>
+            
+            <footer class="bottom">
+                <div class="offers">BUY 2 × 500g PACKS FOR ₹ 240<br>BUY 3 × 200g PACKS FOR ₹ 150</div>
+                <div class="contacts">+91 99043 44252</div>
+            </footer>
+            
+            <div class="toolbar">
+                <button onclick="downloadPoster(this)">📥</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load theme and customizations
+        document.addEventListener('DOMContentLoaded', function() {
+            loadThemeAndCustomizations();
+        });
+
+        function loadThemeAndCustomizations() {
+            // Load theme
+            const themeClass = localStorage.getItem('daskaka-theme-class');
+            const currentTheme = localStorage.getItem('daskaka-current-theme');
+            
+            if (themeClass && currentTheme) {
+                document.body.classList.remove('theme-janmashtami', 'theme-diwali', 'theme-holi', 
+                    'theme-navratri', 'theme-republic', 'theme-independence', 'theme-christmas', 'theme-custom');
+                document.body.classList.add(themeClass);
+                
+                // If it's a custom theme, apply custom colors
+                if (currentTheme === 'custom') {
+                    const customColors = localStorage.getItem('daskaka-custom-colors');
+                    if (customColors) {
+                        try {
+                            const colors = JSON.parse(customColors);
+                            document.documentElement.style.setProperty('--theme-primary', colors.primary);
+                            document.documentElement.style.setProperty('--theme-secondary', colors.secondary);
+                            document.documentElement.style.setProperty('--theme-accent', colors.accent);
+                            document.documentElement.style.setProperty('--theme-background', colors.background);
+                            console.log('Custom colors applied in grid view:', colors);
+                        } catch (e) {
+                            console.log('Error parsing custom colors in grid view:', e);
+                        }
+                    }
+                }
+            }
+            
+            // Load customizations
+            const customizations = localStorage.getItem('daskaka-customizations');
+            if (customizations) {
+                try {
+                    const custom = JSON.parse(customizations);
+                    updateAllPosters(custom);
+                } catch (e) {
+                    console.log('Error loading customizations:', e);
+                }
+            }
+        }
+
+        function updateAllPosters(custom) {
+            // Update all poster content
+            const bigOffers = document.querySelectorAll('.big-offer');
+            const subTitles = document.querySelectorAll('.sub-title');
+            const taglines = document.querySelectorAll('.tagline');
+            const offers = document.querySelectorAll('.offers');
+            const contacts = document.querySelectorAll('.contacts');
+            
+            bigOffers.forEach(el => el.textContent = custom.offer || 'UPTO 30% OFF');
+            subTitles.forEach(el => el.textContent = custom.dates || '16th & 17th Aug');
+            taglines.forEach(el => el.textContent = custom.tagline || 'Har bite ma Surat no swaad!');
+            offers.forEach(el => el.innerHTML = custom.deal || 'BUY 2 × 500g PACKS FOR ₹ 240<br>BUY 3 × 200g PACKS FOR ₹ 150');
+            contacts.forEach(el => el.textContent = custom.contact || '+91 99043 44252');
+        }
+
+        function downloadPoster(button) {
+            button.style.display = 'none';
+            const poster = button.closest('.poster');
+            const posterName = poster.querySelector('.poster-info') ? 
+                poster.querySelector('.poster-info h3').textContent.split(' - ')[0] : 'Poster';
+            
+            // Create a canvas and download the poster
+            html2canvas(poster, {
+                scale: 2,
+                useCORS: true,
+                allowTaint: true
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `${posterName}-${Date.now()}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+            button.style.display = 'block';
+        }
+
+        // Listen for theme changes from other tabs
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'daskaka-current-theme' || e.key === 'daskaka-theme-class' || e.key === 'daskaka-customizations' || e.key === 'daskaka-custom-colors') {
+                loadThemeAndCustomizations();
+            }
+        });
+    </script>
+    
+    <!-- HTML2Canvas for downloading posters -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
