@@ -1,0 +1,131 @@
+/* Daskaka Theme Definitions */
+
+/* Janmashtami Theme (Default) */
+.theme-janmashtami {
+  --theme-primary: #1e3a8a;
+  --theme-secondary: #059669;
+  --theme-accent: #f59e0b;
+  --theme-background: #fffaf9;
+  --theme-background-elements: 
+    /* Mor Pankh (Peacock Feather) */
+    radial-gradient(ellipse 200px 100px at 20% 15%, rgba(34, 197, 94, 0.4), transparent 60%),
+    /* Matka (Clay Pot) */
+    radial-gradient(circle 150px at 80% 85%, rgba(120, 53, 15, 0.3), transparent 60%),
+    /* Flute */
+    linear-gradient(45deg, rgba(198, 40, 40, 0.2), transparent 70%),
+    /* Krishna's Crown */
+    radial-gradient(circle 120px at 50% 25%, rgba(245, 158, 11, 0.3), transparent 60%),
+    /* Divine Light */
+    radial-gradient(circle 300px at 50% 50%, rgba(255, 255, 255, 0.1), transparent 70%);
+}
+
+/* Diwali Theme */
+.theme-diwali {
+  --theme-primary: #dc2626;
+  --theme-secondary: #f59e0b;
+  --theme-accent: #fbbf24;
+  --theme-background: #fef3c7;
+  --theme-background-elements: 
+    /* Diya (Oil Lamp) */
+    radial-gradient(circle 100px at 30% 20%, rgba(251, 191, 36, 0.6), transparent 50%),
+    /* Rangoli Pattern */
+    radial-gradient(circle 80px at 70% 80%, rgba(220, 38, 38, 0.4), transparent 50%),
+    /* Fireworks */
+    radial-gradient(circle 60px at 50% 40%, rgba(251, 191, 36, 0.5), transparent 60%),
+    /* Light Rays */
+    linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent 70%);
+}
+
+/* Holi Theme */
+.theme-holi {
+  --theme-primary: #ec4899;
+  --theme-secondary: #8b5cf6;
+  --theme-accent: #10b981;
+  --theme-background: #fdf2f8;
+  --theme-background-elements: 
+    /* Pink Powder */
+    radial-gradient(circle 120px at 25% 25%, rgba(236, 72, 153, 0.5), transparent 60%),
+    /* Purple Powder */
+    radial-gradient(circle 100px at 75% 75%, rgba(139, 92, 246, 0.5), transparent 60%),
+    /* Green Powder */
+    radial-gradient(circle 80px at 50% 50%, rgba(16, 185, 129, 0.5), transparent 60%),
+    /* Color Splash */
+    radial-gradient(ellipse 200px 150px at 50% 50%, rgba(255, 255, 255, 0.3), transparent 70%);
+}
+
+/* Navratri Theme */
+.theme-navratri {
+  --theme-primary: #7c3aed;
+  --theme-secondary: #f59e0b;
+  --theme-accent: #ec4899;
+  --theme-background: #faf5ff;
+  --theme-background-elements: 
+    /* Garba Circles */
+    radial-gradient(circle 100px at 30% 30%, rgba(124, 58, 237, 0.4), transparent 50%),
+    /* Dandiya Sticks */
+    linear-gradient(90deg, rgba(245, 158, 11, 0.4), transparent 70%),
+    /* Traditional Patterns */
+    radial-gradient(ellipse 150px 100px at 70% 70%, rgba(236, 72, 153, 0.3), transparent 60%),
+    /* Divine Energy */
+    radial-gradient(circle 250px at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%);
+}
+
+/* Republic Day Theme */
+.theme-republic {
+  --theme-primary: #dc2626;
+  --theme-secondary: #1e40af;
+  --theme-accent: #fbbf24;
+  --theme-background: #fef2f2;
+  --theme-background-elements: 
+    /* Indian Flag Colors */
+    linear-gradient(45deg, rgba(220, 38, 38, 0.4), transparent 60%),
+    linear-gradient(-45deg, rgba(30, 64, 175, 0.4), transparent 60%),
+    /* Ashoka Chakra */
+    radial-gradient(circle 80px at 50% 50%, rgba(251, 191, 36, 0.6), transparent 50%),
+    /* National Pride */
+    radial-gradient(circle 300px at 50% 50%, rgba(255, 255, 255, 0.15), transparent 70%);
+}
+
+/* Independence Day Theme */
+.theme-independence {
+  --theme-primary: #dc2626;
+  --theme-secondary: #059669;
+  --theme-accent: #fbbf24;
+  --theme-background: #f0fdf4;
+  --theme-background-elements: 
+    /* Saffron */
+    radial-gradient(circle 100px at 25% 25%, rgba(220, 38, 38, 0.5), transparent 60%),
+    /* White */
+    radial-gradient(circle 80px at 50% 50%, rgba(255, 255, 255, 0.4), transparent 60%),
+    /* Green */
+    radial-gradient(circle 100px at 75% 75%, rgba(5, 150, 105, 0.5), transparent 60%),
+    /* Freedom */
+    radial-gradient(ellipse 250px 150px at 50% 50%, rgba(251, 191, 24, 0.3), transparent 70%);
+}
+
+/* Christmas Theme */
+.theme-christmas {
+  --theme-primary: #dc2626;
+  --theme-secondary: #059669;
+  --theme-accent: #fbbf24;
+  --theme-background: #fef2f2;
+  --theme-background-elements: 
+    /* Christmas Tree */
+    radial-gradient(ellipse 150px 200px at 50% 40%, rgba(5, 150, 105, 0.6), transparent 60%),
+    /* Red Ornaments */
+    radial-gradient(circle 60px at 30% 60%, rgba(220, 38, 38, 0.7), transparent 50%),
+    /* Gold Star */
+    radial-gradient(circle 80px at 70% 20%, rgba(251, 191, 36, 0.8), transparent 50%),
+    /* Snow */
+    radial-gradient(circle 200px at 50% 50%, rgba(255, 255, 255, 0.3), transparent 70%);
+}
+
+/* Custom Theme (User Editable) */
+.theme-custom {
+  --theme-primary: #1e3a8a;
+  --theme-secondary: #059669;
+  --theme-accent: #f59e0b;
+  --theme-background: #fffaf9;
+  --theme-background-elements: 
+    radial-gradient(circle 150px at 50% 50%, rgba(30, 58, 138, 0.3), transparent 60%);
+}

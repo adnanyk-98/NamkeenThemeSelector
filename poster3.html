@@ -1,0 +1,146 @@
+<!-- Save file as: poster3.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daskaka — Poster 3</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="themes.css">
+  <script src="theme-loader.js"></script>
+  
+  <style>
+    /* Janmashtami Theme (Default) */
+    body {
+      background: linear-gradient(180deg, #fff7f8 0%, #eef7ff 50%, #f7fff8 100%);
+    }
+    
+    .poster {
+      background: linear-gradient(180deg, var(--theme-primary) 0%, #3b82f6 50%, var(--theme-secondary) 100%);
+    }
+    
+    .poster::before {
+      background: var(--theme-background-elements);
+    }
+    
+    .title {
+      color: var(--theme-accent);
+    }
+    
+    .pouch .band {
+      background: var(--theme-primary);
+    }
+    
+    .pouch {
+      background: var(--theme-background);
+    }
+    
+    .toolbar button {
+      color: var(--theme-primary);
+    }
+    
+    /* Override image height to match common CSS */
+    .pouch .window img {
+      height: auto;
+      max-height: 160px;
+    }
+  </style>
+	
+
+</head>
+<body class="theme-janmashtami">
+
+  <div class="poster" id="poster">
+    <div class="toolbar">
+      <button id="exportBtn">Export PNG</button>
+    </div>
+
+    <header class="top" role="banner">
+      <div class="title">SPECIAL OFFER</div>
+      <div class="big-offer">UPTO 30% OFF</div>
+      <div class="sub-title">16th & 17th Aug</div>
+    </header>
+
+    <div class="grid-wrap">
+      <div class="grid-3-column">
+        <div class="pouch">
+          <div class="window"><img src="15. Bombay Mix.jpg" alt="Bombay Mix"></div>
+          <div class="label">Bombay Mix</div>
+        </div>
+
+        <div class="pouch">
+          <div class="window"><img src="16. Garlic Mix.jpg" alt="Garlic Mix"></div>
+          <div class="label">Garlic Mix</div>
+        </div>
+
+        <div class="pouch">
+          <div class="window"><img src="17. Nadiyadi Mix.jpg" alt="Nadiyadi Mix"></div>
+          <div class="label">Nadiyadi Mix</div>
+        </div>
+
+        <div class="pouch">
+          <div class="window"><img src="18. Chana Dal.jpg" alt="Chana Dal"></div>
+          <div class="label">Chana Dal</div>
+        </div>
+
+        <div class="pouch">
+          <div class="window"><img src="19. Potato Chips.jpg" alt="Potato Chips"></div>
+          <div class="label">Potato Chips</div>
+        </div>
+
+        <div class="pouch">
+          <div class="window"><img src="20. Banana Chips.jpg" alt="Banana Chips"></div>
+          <div class="label">Banana Chips</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tagline">Har bite ma Surat no swaad!</div>
+
+    <footer class="bottom" role="contentinfo">
+      <div class="offers">
+        BUY 2 × 500g PACKS FOR &#8377; 240<br/>
+        BUY 3 × 200g PACKS FOR &#8377; 150
+      </div>
+      <div class="contacts">
+		  <img src="phone.png" height="20px" align="center"/>
+		  <img src="whatsapp.png" height="20px" align="center"/>
+		  +91 99043 44252  &nbsp; | &nbsp;  +91 96620 20252
+	  </div>
+    </footer>
+  </div>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script>
+    const exportBtn = document.getElementById('exportBtn');
+    const posterEl = document.getElementById('poster');
+
+    exportBtn.addEventListener('click', async () => {
+      exportBtn.disabled = true;
+      exportBtn.textContent = 'Preparing...';
+	  exportBtn.style="display: none";
+      try {
+        const canvas = await html2canvas(posterEl, {useCORS:true, backgroundColor:null, scale:2});
+        const url = canvas.toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Daskaka_Poster3.png';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      } catch(err) {
+		console.log(err);
+        alert('Export failed. You can alternatively take a screenshot or open devtools to save image.');
+      } finally {
+        exportBtn.disabled = false;
+		exportBtn.style="display: block";
+        exportBtn.textContent = 'Export PNG';
+      }
+    });
+  </script>
+</body>
+
+</html>

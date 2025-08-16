@@ -1,0 +1,162 @@
+<!-- Save file as: poster1.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daskaka — Janmashtami Special</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="themes.css">
+  <script src="theme-loader.js"></script>
+  
+  <style>
+    /* Janmashtami Theme (Default) */
+    body {
+      background: linear-gradient(180deg, #fff7f8 0%, #eef7ff 50%, #f7fff8 100%);
+    }
+    
+    .poster {
+      background: linear-gradient(180deg, var(--theme-primary) 0%, #3b82f6 50%, var(--theme-secondary) 100%);
+    }
+    
+    .poster::before {
+      background: var(--theme-background-elements);
+    }
+    
+    .title {
+      color: var(--theme-accent);
+    }
+    
+    .pouch .band {
+      background: var(--theme-primary);
+    }
+    
+    .pouch {
+      background: var(--theme-background);
+    }
+    
+    .toolbar button {
+      color: var(--theme-primary);
+    }
+    
+    /* Override image height to match common CSS */
+    .pouch .window img {
+      height: auto;
+      max-height: 160px;
+    }
+  </style>
+
+
+</head>
+<body class="theme-janmashtami">
+
+  <div class="poster" id="poster">
+    <div class="toolbar">
+      <button id="exportBtn">Export PNG</button>
+    </div>
+
+    <header class="top" role="banner">
+              <div class="title">SPECIAL OFFER</div>
+        <div class="big-offer">UPTO 30% OFF</div>
+        <div class="sub-title">16th & 17th Aug</div>
+    </header>
+
+    <div class="grid-wrap">
+      <div class="grid-4-column">
+        <div class="pouch">
+          
+          <div class="window"><img src="1. Surati Mix.jpg" alt="Surati Mix"></div>
+          <div class="label">Surati<br />Mix</div>
+        </div>
+
+        <div class="pouch">
+          
+          <div class="window"><img src="2. Surati Special.jpg" alt="Surati Special"></div>
+          <div class="label">Surati<br />Special</div>
+        </div>
+
+        <div class="pouch">
+          
+          <div class="window"><img src="3. Bhakarwadi.jpg" alt="Bhakarwadi"></div>
+          <div class="label">Bhakar<br />wadi</div>
+        </div>
+
+        <div class="pouch">
+          
+          <div class="window"><img src="4. Bhatha Kani.jpg" alt="Bhatha Kani"></div>
+          <div class="label">Bhatha<br />Kani</div>
+        </div>
+
+        <div class="pouch">
+          
+          <div class="window"><img src="5. Dal Mooth.jpg" alt="Dal Mooth"></div>
+          <div class="label">Dal<br />Mooth</div>
+        </div>
+
+        <div class="pouch">
+          
+          <div class="window"><img src="6. Navratna Mix.jpg" alt="Navratna Mix"></div>
+          <div class="label">Navratna<br />Mix</div>
+        </div>
+
+        <div class="pouch">
+          
+          <div class="window"><img src="7. Tikha Mix.jpg" alt="Tikha Mix"></div>
+          <div class="label">Tikha<br />Mix</div>
+        </div>
+
+        <div class="pouch">
+          
+          <div class="window"><img src="8. Bhavnagri Gathiya.jpg" alt="Bhavnagri Gathiya"></div>
+          <div class="label">Bhavnagri<br />Gathiya</div>
+        </div>
+      </div>
+    </div>
+<div class="tagline">Har bite ma Surat no swaad!</div>
+    <footer class="bottom" role="contentinfo">
+      <div class="offers">
+        BUY 2 × 500g PACKS FOR &#8377; 240<br/>
+        BUY 3 × 200g PACKS FOR &#8377; 150
+      </div>
+      <div class="contacts">
+		  <img src="phone.png" height="20px" align="center"/>
+		  <img src="whatsapp.png" height="20px" align="center"/>
+		  +91 99043 44252  &nbsp; | &nbsp;  +91 96620 20252
+	  </div>
+    </footer>
+  </div>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script>
+    const exportBtn = document.getElementById('exportBtn');
+    const posterEl = document.getElementById('poster');
+
+    exportBtn.addEventListener('click', async () => {
+      exportBtn.disabled = true;
+      exportBtn.textContent = 'Preparing...';
+	  exportBtn.style="display: none";
+      try {
+        const canvas = await html2canvas(posterEl, {useCORS:true, backgroundColor:null, scale:2});
+        const url = canvas.toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Daskaka_Poster1.png';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      } catch(err) {
+		console.log(err);
+        alert('Export failed. You can alternatively take a screenshot or open devtools to save image.');
+      } finally {
+        exportBtn.disabled = false;
+		exportBtn.style="display: block";
+        exportBtn.textContent = 'Export PNG';
+      }
+    });
+  </script>
+</body>
+
+</html>
